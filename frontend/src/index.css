@@ -1,0 +1,43 @@
+.feature-works {
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: center;
+  gap: 32px;
+  margin: 60px 10px;
+}
+
+.reel-item {
+  position: relative;
+  flex: 1 1 0;
+  max-width: 300px;
+  height: 500px;
+  aspect-ratio: 1/1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reel-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 2.8vw;
+  font-weight: 700;
+  font-family: 'Inter', Arial, sans-serif;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}

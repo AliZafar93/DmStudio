@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 8px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.navbar-logo {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.navbar-cta {
+  background: black;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 12px;
+}
