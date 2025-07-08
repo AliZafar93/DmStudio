@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import Navbar from './components/NavBar/NavBar';
 import './App.css'
 import CountUp from './components/CountUp/CountUp';
+import BlurText from "./components/BlurText/BlurText";
 
 // Import videos
 import video1 from './assets/videos/taketherisk.mp4';
@@ -14,6 +15,12 @@ function App() {
   const statsRef = useRef(null);
   const [startCount, setStartCount] = useState(false);
 
+  // Text Animation
+  const handleAnimationComplete = () => {
+  console.log('Animation completed!');
+};
+
+  // CountUp Animation
   useEffect(() => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
@@ -35,11 +42,25 @@ function App() {
       <Navbar />
       <main>
         <h1>
-          300% Your Reach in 60 days
+          <BlurText
+          text="300% Your Reach in 60 days"
+          delay={150}
+          animateBy="words"
+          direction="down"
+          onAnimationComplete={handleAnimationComplete}
+          className="text-2xl mb-8"
+        />
         </h1>
-        <h2>
-          or you don't pay.
-        </h2>
+        {/* <h2>
+          <BlurText
+          text="or you don't pay."
+          delay={150}
+          animateBy="words"
+          direction="down"
+          onAnimationComplete={handleAnimationComplete}
+          className="text-2xl mb-8"
+        />
+        </h2> */}
         <div>
           <a href="#">Services</a>
           <a href="#">Get Started</a>
