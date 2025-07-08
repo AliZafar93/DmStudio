@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 
 # Ignore video assets
-frontend/src/assets/videos/
-frontend/public/assets/videos/
+*frontend/src/assets/videos/
+*frontend/public/assets/videos/
 

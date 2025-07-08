@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Navbar from './components/NavBar/NavBar';
 import './App.css'
+import CountUp from './components/CountUp/CountUp';
 
 // Import videos
 import video1 from './assets/videos/taketherisk.mp4';
@@ -10,54 +11,38 @@ import video2 from './assets/videos/DecoyEffect.mp4';
 import video3 from './assets/videos/Attention.mp4';
 
 function App() {
+  const statsRef = useRef(null);
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Navbar />
-      <main style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "80vh"
-      }}>
-        <h1 style={{
-          fontSize: "3.5vw",
-          fontWeight: 700,
-          margin: 0,
-          fontFamily: "Inter, Arial, sans-serif"
-        }}>
+      <main>
+        <h1>
           300% Your Reach in 60 days
         </h1>
-        <h2 style={{
-          fontSize: "2.5vw",
-          fontWeight: 700,
-          color: "#999",
-          margin: "0 0 40px 0",
-          fontFamily: "Inter, Arial, sans-serif"
-        }}>
+        <h2>
           or you don't pay.
         </h2>
-        <div style={{ display: "flex", gap: 24 }}>
-          <a href="#" style={{
-            background: "black",
-            color: "white",
-            padding: "16px 16px",
-            borderRadius: 24,
-            fontWeight: 600,
-            textDecoration: "none",
-            fontSize: 16,
-            fontFamily: "Inter, Arial, sans-serif"
-          }}>Services</a>
-          <a href="#" style={{
-            background: "black",
-            color: "white",
-            padding: "16px 16px",
-            borderRadius: 24,
-            fontWeight: 600,
-            textDecoration: "none",
-            fontSize: 16,
-            fontFamily: "Inter, Arial, sans-serif"
-          }}>Get Started</a>
+        <div>
+          <a href="#">Services</a>
+          <a href="#">Get Started</a>
         </div>
       </main>
       <section>
@@ -71,7 +56,6 @@ function App() {
               playsInline 
               className="reel-video"
             />
-            
           </div>
           <div className="reel-item">
             <video 
@@ -82,7 +66,6 @@ function App() {
               playsInline 
               className="reel-video"
             />
-            
           </div>
           <div className="reel-item">
             <video 
@@ -93,10 +76,45 @@ function App() {
               playsInline 
               className="reel-video"
             />
-            
           </div>
         </div>
       </section>
+
+      <section className="stats-section" ref={statsRef}>
+        <div className="stats-container">
+          <div className="stat-block">
+            <div className="stat-number">
+              {startCount && (
+                <CountUp
+                  from={0}
+                  to={63}
+                  separator=","
+                  direction="up"
+                  duration={1}
+                  className="count-up-text"
+                />
+              )}M+
+            </div>
+            <div className="stat-label">Views Generated</div>
+          </div>
+          <div className="stat-block">
+            <div className="stat-number">
+              {startCount && (
+                <CountUp
+                  from={0}
+                  to={500}
+                  separator=","
+                  direction="up"
+                  duration={1}
+                  className="count-up-text"
+                />
+              )}K+
+            </div>
+            <div className="stat-label">Followers Gained</div>
+          </div>
+        </div>
+      </section>
+      
     </>
   )
 }
