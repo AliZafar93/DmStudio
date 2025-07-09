@@ -66,8 +66,8 @@ main a {
   background: black;
   color: white;
   padding: 16px 16px;
-  border-radius: 24px;
-  font-weight: 600;
+  border-radius: 26px;
+  
   text-decoration: none;
   font-size: 16px;
   font-family: 'Inter', Arial, sans-serif;
@@ -85,7 +85,13 @@ main h2 {
   font-size: 2.5vw;
   font-weight: 700;
   color: #999;
+  font-family: 'Inter', Arial, sans-serif;
+}
 
+.pricing-header h2{
+  font-size: 2.5vw;
+  font-weight: 700;
+  margin: 0;
   font-family: 'Inter', Arial, sans-serif;
 }
 
@@ -134,4 +140,23 @@ main h2 {
   color: #999;
   margin-top: 12px;
   font-family: 'Inter', Arial, sans-serif;
+}
+
+
+
+/* Pricing cards section */
+.pricing-cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 40px 0;
+  
+}
+
+.pricing-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

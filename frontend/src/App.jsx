@@ -5,6 +5,7 @@ import Navbar from './components/NavBar/NavBar';
 import './App.css'
 import CountUp from './components/CountUp/CountUp';
 import BlurText from "./components/BlurText/BlurText";
+import Card from './components/card/card';
 
 // Import videos
 import video1 from './assets/videos/taketherisk.mp4';
@@ -135,7 +136,55 @@ function App() {
           </div>
         </div>
       </section>
-      
+      <section className='pricing-cards'>
+  <div className="pricing-header">
+    <h2>
+      <BlurText
+          text="Choose Your Monthly Plan"
+          delay={150}
+          animateBy="words"
+          direction="down"
+          onAnimationComplete={handleAnimationComplete}
+          className="text-2xl mb-8"
+        />
+    </h2>
+    
+  </div>
+  <div className="pricing-cards-container">
+    <Card
+      title="Pro"
+      price="$3,000"
+      features={[
+        "7 videos/month",
+        "Monthly Performance Analysis",
+        "3 Cycles of Revision"
+      ]}
+      onClick={() => { /* handle click */ }}
+    />
+    <Card
+      title="Base"
+      price="$2,500"
+      features={[
+        "5 videos/month",
+        "2 Cycles of Revision"
+      ]}
+      onClick={() => { /* handle click */ }}
+    />
+    <Card
+      title="Full-Service"
+      price="$6,000"
+      features={[
+        "12 videos/month",
+        "Content Ideation",
+        "Scripting",
+        "Thumbnail Creation",
+        "Weekly Performance Analysis",
+        "Notion Dashboard Access"
+      ]}
+      onClick={() => { /* handle click */ }}
+    />
+  </div>
+</section>
     </>
   )
 }

@@ -1,0 +1,73 @@
+/* index.css or card.css */
+
+.pricing-card {
+  background: #f6f6f6;
+  border-radius: 18px;
+  padding: 24px;
+  min-width: 180px;
+  max-width: 230px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  
+}
+
+.pricing-title {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.pricing-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px 0;
+  font-size: 0.8rem;
+  color: #888;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.pricing-features li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.pricing-features li:before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+
+.pricing-btn {
+ width: 100%;
+  padding: 16px 0;
+  border: none;
+  border-radius: 16px;
+  background: #e0e0e0;
+  color: #111;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: 'Inter', Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  /* Add this to push the button to the bottom */
+  margin-top: auto;
+}
+
+.pricing-btn:hover {
+  background: #d1d1d1;
+}
