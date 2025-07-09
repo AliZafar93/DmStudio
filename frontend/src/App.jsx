@@ -6,6 +6,8 @@ import './App.css'
 import CountUp from './components/CountUp/CountUp';
 import BlurText from "./components/BlurText/BlurText";
 import Card from './components/card/card';
+import Carousel from './components/Carousel/Carousel';
+
 
 // Import videos
 import video1 from './assets/videos/taketherisk.mp4';
@@ -16,10 +18,14 @@ function App() {
   const statsRef = useRef(null);
   const [startCount, setStartCount] = useState(false);
 
+  // Add these for BlurText
+  const blurTextRef = useRef(null);
+  const [showBlurText, setShowBlurText] = useState(false);
+
   // Text Animation
   const handleAnimationComplete = () => {
-  console.log('Animation completed!');
-};
+    console.log('Animation completed!');
+  };
 
   // CountUp Animation
   useEffect(() => {
@@ -38,30 +44,40 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  // BlurText Animation
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowBlurText(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (blurTextRef.current) {
+      observer.observe(blurTextRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Navbar />
       <main>
-        <h1>
-          <BlurText
-          text="300% Your Reach in 60 days"
-          delay={150}
-          animateBy="words"
-          direction="down"
-          onAnimationComplete={handleAnimationComplete}
-          className="text-2xl mb-8"
-        />
+        <h1 ref={blurTextRef}>
+          {showBlurText && (
+            <BlurText
+              text="300% Your Reach in 60 days"
+              delay={150}
+              animateBy="words"
+              direction="down"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-2xl mb-8"
+            />
+          )}
         </h1>
-        {/* <h2>
-          <BlurText
-          text="or you don't pay."
-          delay={150}
-          animateBy="words"
-          direction="down"
-          onAnimationComplete={handleAnimationComplete}
-          className="text-2xl mb-8"
-        />
-        </h2> */}
+        
         <div>
           <a href="#">Services</a>
           <a href="#">Get Started</a>
@@ -136,6 +152,31 @@ function App() {
           </div>
         </div>
       </section>
+
+      <section className='gallery'>
+        <h2>
+          <BlurText
+              text="Trusted by the industry leaders"
+              delay={150}
+              animateBy="words"
+              direction="down"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-2xl mb-8"
+            />
+        </h2>
+           <div style={{ height: '600px', position: 'relative' }}>
+            <Carousel
+              baseWidth={300}
+              autoplay={true}
+              autoplayDelay={3000}
+              pauseOnHover={true}
+              loop={true}
+              round={false}
+            />
+          </div>
+      </section>
+
+              
       <section className='pricing-cards'>
   <div className="pricing-header">
     <h2>
@@ -184,7 +225,11 @@ function App() {
       onClick={() => { /* handle click */ }}
     />
   </div>
-</section>
+      </section>
+
+      <section className='footer'>
+
+      </section>
     </>
   )
 }
