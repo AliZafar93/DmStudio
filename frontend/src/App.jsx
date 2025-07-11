@@ -9,6 +9,12 @@ import Card from './components/card/card';
 import Carousel from './components/Carousel/Carousel';
 import Stepper, { Step } from './components/Stepper/Stepper';
 
+//Component inspired by Kevin Levron:
+//https://x.com/soju22/status/1858925191671271801
+  
+import Ballpit from './components/Ballpit/Ballpit';
+import logo from "./assets/images/blacklogo.png";
+
 
 // Import videos
 import video1 from './assets/videos/taketherisk.mp4';
@@ -68,7 +74,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <section className='hero-section'>
+        <main>
         <h1 ref={blurTextRef}>
           {showBlurText && (
             <BlurText
@@ -87,7 +94,10 @@ function App() {
           <a href="#">Get Started</a>
         </div>
       </main>
-      <section>
+      </section>
+      
+
+      <section className='feature-works'>
         <div className="feature-works">
           <div className="reel-item">
             <video 
@@ -275,9 +285,58 @@ function App() {
         </Stepper>
       </section>
 
-      <section className='footer'>
+      <section className='footer' style={{ position: 'relative' }}>
+        <div
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+            minHeight: '500px',
+            maxHeight: '500px',
+            width: '100%',
+          }}
+        >
+          <Ballpit
+            count={100}
+            gravity={5}
+            friction={0.8}
+            wallBounce={0.95}
+            followCursor={false}
+          />
 
+          {/* 👇 Overlay Content (Elements ABOVE Ballpit) */}
+          <div className='footer-overlays'>
+              
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 10,
+              textAlign: 'center',
+              color: 'black',
+            }}
+          >
+            <div className="navbar-logo"><img style={{ height: '50px'}} src={logo} />Studio</div>
+            <h2>
+            <BlurText
+                text="Choose Your Monthly Plan"
+                delay={850}
+                animateBy="words"
+                direction="down"
+                onAnimationComplete={handleAnimationComplete}
+                className="text-2xl mb-8"
+              />
+          </h2>
+            <a href="#" className="navbar-cta">Get Started</a>
+            {/* <button>Contact Us</button> */}
+          </div>
+
+
+        </div>
       </section>
+
     </>
   )
 }
