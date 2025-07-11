@@ -7,6 +7,7 @@ import CountUp from './components/CountUp/CountUp';
 import BlurText from "./components/BlurText/BlurText";
 import Card from './components/card/card';
 import Carousel from './components/Carousel/Carousel';
+import Stepper, { Step } from './components/Stepper/Stepper';
 
 
 // Import videos
@@ -60,6 +61,9 @@ function App() {
     }
     return () => observer.disconnect();
   }, []);
+
+
+  
 
   return (
     <>
@@ -225,6 +229,50 @@ function App() {
       onClick={() => { /* handle click */ }}
     />
   </div>
+      </section>
+
+      <section className='onboarding-steps'>
+        <h2>
+          <BlurText
+              text="How to Get Started with Us."
+              delay={150}
+              animateBy="words"
+              direction="down"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-2xl mb-8"
+            />
+        </h2>
+        <Stepper
+          initialStep={1}
+          onStepChange={(step) => {
+            console.log(step);
+          }}
+          onFinalStepCompleted={() => console.log("All steps completed!")}
+          backButtonText="Previous"
+          nextButtonText="Next"
+        >
+          <Step>
+            <h2>Welcome to the DM Studio!</h2>
+            <p>Check out the next step!</p>
+          </Step>
+          <Step>
+            <h2>Step 2</h2>
+            <img style={{ height: '100px', width: '100%', objectFit: 'cover', objectPosition: 'center -70px', borderRadius: '15px', marginTop: '1em' }} src="https://www.purrfectcatgifts.co.uk/cdn/shop/collections/Funny_Cat_Cards_640x640.png?v=1663150894" />
+            <p>Custom step content!</p>
+          </Step>
+          <Step>
+            <h2>How about an input?</h2>
+            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name?" />
+          </Step>
+          <Step>
+            <h2>Final Step</h2>
+            <p>You made it!</p>
+          </Step>
+          <Step>
+            <h2>Step 5</h2>
+            <p>You made it!</p>
+          </Step>
+        </Stepper>
       </section>
 
       <section className='footer'>
