@@ -8,12 +8,10 @@ import BlurText from "./components/BlurText/BlurText";
 import Card from './components/card/card';
 import Carousel from './components/Carousel/Carousel';
 import Stepper, { Step } from './components/Stepper/Stepper';
-
-//Component inspired by Kevin Levron:
-//https://x.com/soju22/status/1858925191671271801
   
 import Ballpit from './components/Ballpit/Ballpit';
 import logo from "./assets/images/blacklogo.png";
+import FQAs from './components/FAQs/FAQs';
 
 
 // Import videos
@@ -283,6 +281,22 @@ function App() {
             <p>You made it!</p>
           </Step>
         </Stepper>
+      </section>
+
+
+      <section className='faqs-section'>
+        <h2>
+              <BlurText
+                text="Frequently asked questions"
+                delay={250}
+                animateBy="words"
+                direction="down"
+                onAnimationComplete={handleAnimationComplete}
+                className="text-2xl mb-8"
+              />  
+        </h2>
+               
+        <FQAs />
       </section>
 
       <section className='footer' style={{ position: 'relative' }}>
