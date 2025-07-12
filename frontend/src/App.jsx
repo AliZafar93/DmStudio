@@ -130,7 +130,7 @@ function App() {
         </div>
       </section>
 
-      <section className="stats-section" ref={statsRef}>
+      <section id='track-records' className="stats-section" ref={statsRef}>
         <div className="stats-container">
           <div className="stat-block">
             <div className="stat-number">
@@ -165,7 +165,7 @@ function App() {
         </div>
       </section>
 
-      <section className='gallery'>
+      <section id='reviews' className='gallery'>
         <h2>
           <BlurText
               text="Trusted by the industry leaders"
@@ -189,7 +189,7 @@ function App() {
       </section>
 
               
-      <section className='pricing-cards'>
+      <section id='pricing' className='pricing-cards' >
   <div className="pricing-header">
     <h2>
       <BlurText
@@ -239,7 +239,7 @@ function App() {
   </div>
       </section>
 
-      <section className='onboarding-steps'>
+      <section id="workflow" className='onboarding-steps' >
         <h2>
           <BlurText
               text="How to Get Started with Us."
