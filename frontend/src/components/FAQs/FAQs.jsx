@@ -39,7 +39,7 @@ const FAQs = () => {
             <button className="faq-question" onClick={() => toggleFAQ(index)}>
               {faq.question}
               <span className="arrow">
-                {openIndex === index ? '▲' : '▼'}
+                {openIndex === index ? '-' : '+'}
               </span>
             </button>
             {openIndex === index && (

@@ -176,12 +176,12 @@ function App() {
               className="text-2xl mb-8"
             />
         </h2>
-           <div style={{ height: '600px', position: 'relative' }}>
+           <div style={{ height: '400px', }}>
             <Carousel
-              baseWidth={300}
+              baseWidth={500}
               autoplay={true}
-              autoplayDelay={3000}
-              pauseOnHover={true}
+              autoplayDelay={2500}
+              pauseOnHover={false}
               loop={true}
               round={false}
             />

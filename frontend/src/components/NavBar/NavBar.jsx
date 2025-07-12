@@ -14,7 +14,7 @@ export default function Navbar() {
         <a href="#" className="navbar-link">Pricing</a>
         <a href="#" className="navbar-link">About Us</a>
       </div>
-      <a href="#" className="navbar-cta">Get Started</a>
+      <a href="#" className="navbar-cta">Contact Us</a>
     </nav>
   );
 }
