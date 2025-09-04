@@ -5,7 +5,7 @@ import Navbar from './components/NavBar/NavBar';
 import './App.css'
 import CountUp from './components/CountUp/CountUp';
 import BlurText from "./components/BlurText/BlurText";
-import Card from './components/card/card';
+import Card from './components/Card/Card';
 import Carousel from './components/Carousel/Carousel';
 import Stepper, { Step } from './components/Stepper/Stepper';
   
