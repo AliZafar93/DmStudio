@@ -145,7 +145,7 @@ function App() {
                 />
               )}M+
             </div>
-            <div className="stat-label">Views Generated</div>
+            <div className="stat-label"> VIEWS Generated</div>
           </div>
           <div className="stat-block">
             <div className="stat-number">
